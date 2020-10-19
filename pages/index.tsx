@@ -1,15 +1,9 @@
 import { GetServerSideProps } from "next";
 import { gql } from "@apollo/client";
 import { apolloClient } from "../services/strapi";
+import { Products } from "types/types";
 
-type Product = {
-  _typename: string;
-  title: string;
-  price: number;
-  description: string;
-};
-
-export default function Home({ products }: Product[]) {
+export default function Home({ products }: Products) {
   return <>something</>;
 }
 

@@ -43,8 +43,8 @@ export const NavBtn = styled.div`
 
     .navLink > a {
       line-height: 3rem;
-      font-size: 0.8rem;
-      padding: 0 0.8rem;
+      font-size: 0.85rem;
+      padding: 0 0.6rem;
       display: flex;
       align-items: center;
       justify-content: space-between;

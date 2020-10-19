@@ -1,11 +1,11 @@
 import Link from "next/link";
+
 import { useState } from "react";
 import {
   faShoppingBag,
   faSearch,
   faBars,
   faCaretDown,
-  faArrowLeft,
 } from "@fortawesome/free-solid-svg-icons";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -17,7 +17,9 @@ import {
   DropDown,
 } from "./navigation.css.js";
 
-export default function Navigation() {
+import { Navigations, MenuItem } from "types/types";
+
+export default function Navigation({ data }: Navigations) {
   const [activeMobileMenu, setActiveMobileMenu] = useState(false);
 
   return (
@@ -27,48 +29,33 @@ export default function Navigation() {
           <img src="img/logo.png" />
         </LogoContainer>
         <NavBtn>
-          {/* ACITVE */}
           <div className={activeMobileMenu ? "navLinks active" : "navLinks"}>
             <ul>
-              <li className="navLink">
-                <Link href="">
-                  <a>Whiskey Amerykanska</a>
-                </Link>
-              </li>
-              <li className="navLink">
-                <Link href="">
-                  <a>
-                    Whisky Szkocka <FontAwesomeIcon icon={faCaretDown} />
-                  </a>
-                </Link>
-                <DropDown>
-                  <ul>
-                    <li className="dropDownLink">
-                      <Link href="#">
-                        <a>Blended whisky</a>
-                      </Link>
-                    </li>
-                    <li className="dropDownLink">
-                      <Link href="#">
-                        <a>Single Malt whisky</a>
-                      </Link>
-                    </li>
-                    <li className="dropDownLink">
-                      <Link href="#">
-                        <a>Blended Malt whisky</a>
-                      </Link>
-                    </li>
-                    <div className="arrow">
-                      <FontAwesomeIcon icon={faCaretDown} />
-                    </div>
-                  </ul>
-                </DropDown>
-              </li>
-              <li className="navLink">
-                <Link href="">
-                  <a>Whiskey Irlandska</a>
-                </Link>
-              </li>
+              {data.map((navi) => (
+                <li className="navLink" key={navi.id}>
+                  <Link href={navi.slug ? navi.slug : "#"}>
+                    <a>
+                      {navi.name}
+                      {navi.item.length > 0 && (
+                        <FontAwesomeIcon icon={faCaretDown} />
+                      )}
+                    </a>
+                  </Link>
+                  {navi.item.length > 0 && (
+                    <DropDown>
+                      <ul>
+                        {navi.item.map((it: MenuItem) => (
+                          <li className="dropDownLink" key={it.id}>
+                            <Link href={it.slug}>
+                              <a>{it.name}</a>
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </DropDown>
+                  )}
+                </li>
+              ))}
             </ul>
           </div>
           <div className="navActions">
