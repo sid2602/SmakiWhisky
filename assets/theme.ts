@@ -13,7 +13,7 @@ const theme = {
     lighterBlack: "#404040",
     // blackTransparent: "rgba(38, 38, 38, 0.8)",
   },
-  variant: {
+  variants: {
     container: {
       mx: "auto",
       maxWidth: 1200,

@@ -33,7 +33,7 @@ export default function Navigation({ data }: Navigations) {
             <ul>
               {data.map((navi) => (
                 <li className="navLink" key={navi.id}>
-                  <Link href={navi.slug ? navi.slug : "#"}>
+                  <Link href={navi.slug.length > 0 ? navi.slug : "#"}>
                     <a>
                       {navi.name}
                       {navi.item.length > 0 && (
@@ -44,7 +44,7 @@ export default function Navigation({ data }: Navigations) {
                   {navi.item.length > 0 && (
                     <DropDown>
                       <ul>
-                        {navi.item.map((it: MenuItem) => (
+                        {navi.item.map((it) => (
                           <li className="dropDownLink" key={it.id}>
                             <Link href={it.slug}>
                               <a>{it.name}</a>
