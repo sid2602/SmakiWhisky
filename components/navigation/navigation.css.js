@@ -165,7 +165,6 @@ export const DropDown = styled.div`
     color: white;
     padding: 0.5rem 1rem;
     font-size: 0.9rem;
-    border-bottom: 1px solid white;
   }
 
   .arrow {

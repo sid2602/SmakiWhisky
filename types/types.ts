@@ -1,3 +1,12 @@
+export type CustomArrowProps = {
+  className?: string;
+  style?: React.CSSProperties;
+  onClick?: React.MouseEventHandler<any>;
+  currentSlide?: number;
+  slideCount?: number;
+  site?: string;
+};
+
 export type Products = {
   products: Product[];
 };

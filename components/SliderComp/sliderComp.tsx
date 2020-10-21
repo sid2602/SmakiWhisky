@@ -3,7 +3,7 @@ import { Flex, Box } from "reflexbox";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { SliderContainer, Img } from "./sliderComp.css";
-import { Baners } from "types/types";
+import { Baners, CustomArrowProps } from "types/types";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -11,6 +11,14 @@ import {
   faChevronRight,
   faChevronLeft,
 } from "@fortawesome/free-solid-svg-icons";
+
+const Arrow = ({ onClick, className, site }: CustomArrowProps) => (
+  <FontAwesomeIcon
+    icon={site == "Left" ? faChevronLeft : faChevronRight}
+    className={className}
+    onClick={onClick}
+  />
+);
 
 export default function SliderComponent({ baners }: Baners) {
   const settings = {
@@ -20,6 +28,8 @@ export default function SliderComponent({ baners }: Baners) {
     slidesToShow: 1,
     slidesToScroll: 1,
     draggable: false,
+    prevArrow: <Arrow site="Left" />,
+    nextArrow: <Arrow />,
   };
 
   return (
@@ -34,17 +44,6 @@ export default function SliderComponent({ baners }: Baners) {
             </Link>
           </div>
         ))}
-
-        {/* <div>
-          <Link href="#">
-            <a>
-              <Img src={process.env.API_URL + baners[0].photo.url} />
-            </a>
-          </Link>
-        </div>
-        <div>
-          <Img src={process.env.API_URL + baners[1].photo.url} />
-        </div> */}
       </Slider>
     </Box>
   );
