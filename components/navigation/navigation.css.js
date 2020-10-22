@@ -13,7 +13,7 @@ export const Nav = styled.nav`
   padding: 0 2rem;
   margin: 0 auto;
   display: flex;
-  /* position: relative; */
+  font-family: "Source Sans Pro", sans-serif;
 `;
 
 export const LogoContainer = styled.div`

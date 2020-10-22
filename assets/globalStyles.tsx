@@ -8,12 +8,13 @@ const GlobalStyles = () => (
       styles={css`
         ${emotionNormalize}
         html,
-    body {
+        body {
           padding: 0;
           margin: 0;
           background: white;
           min-height: 100vh;
-          font-family: Helvetica, Arial, sans-serif;
+          font-family: "Lato", sans-serif;
+          /* font-family: 'Source Sans Pro', sans-serif; */
           overflow-x: hidden;
         }
 

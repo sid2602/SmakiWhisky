@@ -19,6 +19,10 @@ export type Baners = {
   baners: Baner[];
 };
 
+export type News = {
+  news: Baner[];
+};
+
 export type Product = {
   title: string;
   price: number;
