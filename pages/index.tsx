@@ -5,7 +5,7 @@ import { Flex, Box } from "reflexbox";
 import { Products, Baners, News, Recomendeds } from "types/types";
 import SliderComponent from "components/SliderComp/sliderComp";
 import NewsComponent from "components/news/news";
-
+import Advantages from "components/advantages/advantages";
 import Recomended from "components/Recomended/Recomended";
 export default function Home({
   products,
@@ -18,6 +18,7 @@ export default function Home({
       <SliderComponent baners={baners} />
       <NewsComponent news={news} />
       <Recomended recomendeds={recomendeds} />
+      <Advantages />
     </Box>
   );
 }

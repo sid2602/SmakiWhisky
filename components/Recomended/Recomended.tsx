@@ -1,5 +1,5 @@
 import Heading from "assets/heading";
-import { Box, Flex } from "reflexbox";
+import { Box } from "reflexbox";
 import Card from "assets/card";
 import { Recomendeds } from "types/types";
 import Slider from "react-slick";
@@ -16,9 +16,15 @@ export default function Recomended({ recomendeds }: Recomendeds) {
     nextArrow: <Arrow />,
     responsive: [
       {
-        breakpoint: 768,
+        breakpoint: 767,
         settings: {
           slidesToShow: 1,
+        },
+      },
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
         },
       },
     ],

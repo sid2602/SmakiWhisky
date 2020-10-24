@@ -23,7 +23,7 @@ const CardStyled = styled.a`
   cursor: pointer;
   width: 100%;
   height: 300px;
-  margin: 1rem auto 0;
+  margin: 1rem auto 1rem;
   overflow: hidden;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   background: white;
@@ -39,7 +39,7 @@ const CardStyled = styled.a`
 
   p {
     text-align: center;
-    color: #5b5b5b;
+    color: ${(props: any) => props.theme.colors.gray};
   }
 
   .title {

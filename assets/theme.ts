@@ -8,10 +8,11 @@ breakpoints.xxl = breakpoints[4];
 
 const theme = {
   colors: {
+    primaryLight: "#F59f6e",
     primary: "#F2600C",
     black: "#262626",
     lighterBlack: "#404040",
-    // blackTransparent: "rgba(38, 38, 38, 0.8)",
+    gray: "#5b5b5b",
   },
   variants: {
     container: {
