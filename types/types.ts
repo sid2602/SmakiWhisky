@@ -7,6 +7,10 @@ export type CustomArrowProps = {
   site?: string;
 };
 
+export type Recomendeds = {
+  recomendeds: Product[];
+};
+
 export type Products = {
   products: Product[];
 };
@@ -26,7 +30,10 @@ export type News = {
 export type Product = {
   title: string;
   price: number;
-  description: string;
+  photo: {
+    url: string;
+  };
+  // description?: string;
 };
 
 export type NavigationTypes = {

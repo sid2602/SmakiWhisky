@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Img } from "./news.css";
 export default function NewsComponent({ news }: News) {
   return (
-    <Box width={{ _: 4 / 5, lg: 1 }} mx="auto">
+    <Box width={{ _: 4 / 5, lg: 1 }} mx="auto" as="section">
       <Heading>Nowości</Heading>
       <Flex flexWrap="wrap" justifyContent="center">
         {news.map((item) => (

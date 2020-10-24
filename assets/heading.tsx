@@ -27,7 +27,7 @@ const HeadingStyled = styled.h2`
     height: 4px;
     border-radius: 10%;
     top: 50%;
-    background-color: ${(props) => props.theme.colors.primary};
+    background-color: ${(props: any) => props.theme.colors.primary};
   }
 
   ::before {
