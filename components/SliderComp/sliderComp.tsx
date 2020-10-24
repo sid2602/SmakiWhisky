@@ -2,23 +2,11 @@ import Slider from "react-slick";
 import { Flex, Box } from "reflexbox";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { SliderContainer, Img } from "./sliderComp.css";
-import { Baners, CustomArrowProps } from "types/types";
+import { Img } from "./sliderComp.css";
+import { Baners } from "types/types";
 import Link from "next/link";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import {
-  faChevronRight,
-  faChevronLeft,
-} from "@fortawesome/free-solid-svg-icons";
-
-const Arrow = ({ onClick, className, site }: CustomArrowProps) => (
-  <FontAwesomeIcon
-    icon={site == "Left" ? faChevronLeft : faChevronRight}
-    className={className}
-    onClick={onClick}
-  />
-);
+import Arrow from "assets/arrow";
 
 export default function SliderComponent({ baners }: Baners) {
   const settings = {
@@ -33,7 +21,7 @@ export default function SliderComponent({ baners }: Baners) {
   };
 
   return (
-    <Box as={SliderContainer} mt="1rem">
+    <Box as="article" mt="1rem" width="100%">
       <Slider {...settings}>
         {baners.map((baner) => (
           <div key={baner.name}>

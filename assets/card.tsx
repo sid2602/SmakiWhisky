@@ -21,9 +21,9 @@ export default function Card({ product }: Props) {
 
 const CardStyled = styled.a`
   cursor: pointer;
-  width: 33%;
+  width: 100%;
   height: 300px;
-  margin-top: 1rem;
+  margin: 1rem auto 0;
   overflow: hidden;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   background: white;
@@ -32,7 +32,7 @@ const CardStyled = styled.a`
   justify-content: center;
   align-items: center;
   max-width: 250px;
-
+  overflow: hidden;
   img {
     height: 60%;
   }
