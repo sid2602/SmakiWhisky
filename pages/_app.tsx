@@ -8,6 +8,7 @@ import GlobalStyle from "assets/globalStyles";
 import { apolloClient } from "services/strapi";
 import { gql } from "@apollo/client";
 import { Navigations } from "types/types";
+import Footer from "components/footer/footer";
 
 function MyApp({ Component, pageProps, data }: AppProps & Navigations) {
   return (
@@ -15,6 +16,7 @@ function MyApp({ Component, pageProps, data }: AppProps & Navigations) {
       <GlobalStyle />
       <Navigation data={data} />
       <Component {...pageProps} />
+      <Footer />
     </ThemeProvider>
   );
 }

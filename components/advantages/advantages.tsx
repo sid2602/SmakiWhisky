@@ -19,6 +19,7 @@ export default function Advantages() {
     <Flex
       flexDirection={{ _: "column", md: "row" }}
       justifyContent="space-between"
+      as="article"
     >
       {advOption.map((item) => (
         <Box width={{ _: "100%", md: "30%" }} key={item.text}>
@@ -37,11 +38,11 @@ const AdvantageStyle = styled.div`
   line-height: 1.4;
   width: 100%;
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   color: ${(props: any) => props.theme.colors.gray};
   max-width: 250px;
   svg {
-    font-size: 4rem;
+    font-size: 3rem;
     color: ${(props: any) => props.theme.colors.primaryLight};
   }
 `;
