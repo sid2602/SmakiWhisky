@@ -9,7 +9,7 @@ const GlobalStyles = () => (
         ${emotionNormalize}
         html,
         body {
-          padding: 0;
+          padding: 2rem 0 0;
           margin: 0;
           background: white;
           min-height: 100vh;

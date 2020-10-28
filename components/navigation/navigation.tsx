@@ -26,14 +26,19 @@ export default function Navigation({ data }: Navigations) {
     <Header>
       <Nav>
         <LogoContainer>
-          <img src="img/logo.png" />
+          <Link href="/">
+            <a>
+              <img src="img/logo.png" />
+            </a>
+          </Link>
         </LogoContainer>
+
         <NavBtn>
           <div className={activeMobileMenu ? "navLinks active" : "navLinks"}>
             <ul>
               {data.map((navi) => (
                 <li className="navLink" key={navi.id}>
-                  <Link href={navi.slug.length > 0 ? navi.slug : "#"}>
+                  <Link href={navi.slug.length > 0 ? `/${navi.slug}` : "/#"}>
                     <a>
                       {navi.name}
                       {navi.item.length > 0 && (

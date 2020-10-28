@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 
 export const Header = styled.header`
-  position: sticky;
+  position: fixed;
   top: 0px;
   background-color: ${(props) => props.theme.colors.black};
   width: 100%;
@@ -20,7 +20,8 @@ export const LogoContainer = styled.div`
   flex: 1;
 
   img {
-    height: 2.8rem;
+    height: 2.7rem;
+    padding: 0.2rem 0;
   }
 `;
 
@@ -86,9 +87,9 @@ export const NavBtn = styled.div`
     .navLinks {
       /* display: none; */
       position: fixed;
-      height: calc(100vh - 3rem);
+      height: calc(100vh - 2rem);
       left: 0%;
-      top: 3rem;
+      top: 2.7rem;
       width: 100%;
       background-color: ${(props) => props.theme.colors.lighterBlack};
       transform: translateX(100%);
