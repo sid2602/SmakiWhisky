@@ -51,6 +51,8 @@ export default function Footer() {
 }
 
 const FooterStyled = styled.footer`
+  position: absolute;
+  bottom: 0;
   width: 100%;
   background-color: #eeeeee;
   padding: 2rem;
