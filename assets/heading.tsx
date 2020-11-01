@@ -3,27 +3,54 @@ import React from "react";
 
 type Props = {
   children: React.ReactNode;
+  small?: boolean;
 };
 
-const Heading = ({ children }: Props) => (
-  <HeadingStyled>{children}</HeadingStyled>
+const Heading = ({ children, small = false }: Props) => (
+  <Container small={small}>
+    <div />
+    <HeadingStyled small={small}>{children}</HeadingStyled>
+    <div />
+  </Container>
 );
 
+const Container = styled.div`
+  width: 80%;
+  margin: 2rem auto;
+  display: flex;
+  align-items: center;
+  div {
+    background-color: ${(props: any) => props.theme.colors.primary};
+    flex: 1;
+    height: 3px;
+    margin: 0 1rem;
+    /* width: 20%; */
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    div {
+      display: ${(props) => props.small && "none"};
+    }
+  }
+`;
+
 const HeadingStyled = styled.h2`
+  flex: 2;
   display: block;
   width: 100%;
-  margin-top: 3rem;
-  font-size: 3rem;
+  font-size: ${(props) => (props.small ? "2rem" : "3rem")};
   font-family: "Source Sans Pro", sans-serif;
   text-align: center;
   position: relative;
   font-weight: normal;
+  padding: 0 1rem;
 
-  ::before,
+  /* ::before,
   ::after {
     content: " ";
     position: absolute;
-    width: 25%;
+    width: ${(props) => (props.small ? "20%" : "25%")};
     height: 4px;
     border-radius: 10%;
     top: 50%;
@@ -36,10 +63,10 @@ const HeadingStyled = styled.h2`
 
   ::after {
     right: 10%;
-  }
+  } */
 
   @media (max-width: 1024px) {
-    font-size: 2.5rem;
+    font-size: ${(props) => (props.small ? "1.5rem" : "2.5rem")};
   }
 
   @media (max-width: 768px) {

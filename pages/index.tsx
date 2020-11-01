@@ -7,6 +7,7 @@ import SliderComponent from "components/SliderComp/sliderComp";
 import NewsComponent from "components/news/news";
 import Advantages from "components/advantages/advantages";
 import Recomended from "components/Recomended/Recomended";
+
 export default function Home({
   products,
   baners,
@@ -28,6 +29,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     query: gql`
       {
         products {
+          id
           title
           price
           photo {

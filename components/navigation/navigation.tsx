@@ -19,6 +19,8 @@ import {
 
 import { Navigations, MenuItem } from "types/types";
 
+// import Logo from "public/img/logo.png";
+
 export default function Navigation({ data }: Navigations) {
   const [activeMobileMenu, setActiveMobileMenu] = useState(false);
 
@@ -38,7 +40,7 @@ export default function Navigation({ data }: Navigations) {
             <ul>
               {data.map((navi) => (
                 <li className="navLink" key={navi.id}>
-                  <Link href={navi.slug.length > 0 ? `/${navi.slug}` : "/#"}>
+                  <Link href={`/${navi.slug}`}>
                     <a>
                       {navi.name}
                       {navi.item.length > 0 && (
@@ -51,7 +53,7 @@ export default function Navigation({ data }: Navigations) {
                       <ul>
                         {navi.item.map((it) => (
                           <li className="dropDownLink" key={it.id}>
-                            <Link href={it.slug}>
+                            <Link href={`/${it.slug}`}>
                               <a>{it.name}</a>
                             </Link>
                           </li>

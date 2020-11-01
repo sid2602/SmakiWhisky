@@ -12,7 +12,6 @@ const GlobalStyles = () => (
           padding: 2rem 0 0;
           margin: 0;
           background: white;
-          /* height: 100%; */
           min-height: 100vh;
           font-family: "Lato", sans-serif;
           /* font-family: 'Source Sans Pro', sans-serif; */

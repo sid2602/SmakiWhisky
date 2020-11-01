@@ -1,13 +1,35 @@
 import { GetStaticProps, GetStaticPaths, GetServerSideProps } from "next";
 import { gql, from } from "@apollo/client";
 import { apolloClient } from "../../services/strapi";
-import { Products } from "types/types";
+import { Products, Product } from "types/types";
 import Card from "assets/card";
 import { Box, Flex } from "reflexbox";
 import styled from "@emotion/styled";
-export default function Origin({ products }: Products) {
+import Heading from "assets/heading";
+
+type Origin = {
+  origin: string;
+};
+
+type Result = {
+  result: {
+    name: string;
+    title: string;
+    products: Array<Product>;
+  };
+};
+
+export default function Origin({ result }: Result) {
+  const { products } = result;
+
   return (
-    <Box width={{ _: "100%", md: "80%" }} as="main" margin="1rem auto">
+    <Box width={{ _: "100%", lg: "80%" }} as="main" margin="1rem auto">
+      <Box width="80%" m="0 auto">
+        <Heading small={true}>
+          {result.title ? result.title : "Wynik wyszukiwania"}
+        </Heading>
+      </Box>
+
       <Flex
         width="100%"
         flexWrap="wrap"
@@ -63,9 +85,11 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
         categories(where: { name: "${origin}" }) {
           id
           name
+          title
           products {
             title
             price
+            id
             photo {
               url
             }
@@ -82,6 +106,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
         products(where: { title: "${origin}" }) { 
           title
           price
+          id
           photo {
             url
           }
@@ -94,7 +119,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
   return {
     props: {
-      products: result.length > 0 ? result[0].products : [],
+      result: result.length > 0 ? result[0] : [],
     },
   };
 };

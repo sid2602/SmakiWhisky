@@ -8,7 +8,7 @@ type Props = {
 
 export default function Card({ product }: Props) {
   return (
-    <Link href="#">
+    <Link href={`/product/${encodeURIComponent(product.id)}`}>
       <CardStyled>
         <img src={process.env.API_URL + product.photo.url} />
         <p className="title">{product.title}</p>
