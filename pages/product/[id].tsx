@@ -3,9 +3,9 @@ import { apolloClient } from "services/strapi";
 import { gql } from "@apollo/client";
 import { ProductExtended } from "types/types";
 
-import { Box } from "reflexbox";
 import { ProductContainer, ImageContainer, Info } from "./id.style";
-
+import QuantityInput from "assets/QuantityInput";
+import Button from "assets/button";
 export default function Product({ product }: ProductExtended) {
   return (
     <ProductContainer>
@@ -16,6 +16,8 @@ export default function Product({ product }: ProductExtended) {
       <Info>
         <h2>{product.title}</h2>
         <h3>{product.price} zł</h3>
+        <QuantityInput />
+        <Button>Dodaj do koszyka</Button>
       </Info>
     </ProductContainer>
   );

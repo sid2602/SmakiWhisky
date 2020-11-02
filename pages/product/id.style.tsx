@@ -8,6 +8,10 @@ export const ProductContainer = styled.section`
   .mobileHeader {
     display: none;
   }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 export const ImageContainer = styled.div`
@@ -19,6 +23,11 @@ export const ImageContainer = styled.div`
   > img {
     height: 100%;
   }
+
+  @media (max-width: 768px) {
+    border: none;
+    margin-bottom: 1rem;
+  }
 `;
 
 export const Info = styled.div`
@@ -26,17 +35,27 @@ export const Info = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-
+  justify-content: space-around;
   h2,
   h3 {
     font-size: 1.5rem;
     padding: 0 2rem;
+    text-align: center;
   }
 
   h3 {
-    width: 100%;
+    width: 150px;
+    padding-bottom: 1rem;
     color: red;
     font-size: 1.2rem;
+
     color: ${(props: any) => props.theme.colors.gray};
+    border-bottom: 2px solid ${(props: any) => props.theme.colors.primary};
+  }
+
+  @media (max-width: 768px) {
+    > div {
+      margin: 1.5rem 0;
+    }
   }
 `;
