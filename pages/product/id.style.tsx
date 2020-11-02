@@ -59,3 +59,27 @@ export const Info = styled.div`
     }
   }
 `;
+
+export const Description = styled.section`
+  width: 60%;
+  margin: 3rem auto;
+
+  padding: 1rem;
+  border: 1px solid black;
+  h3 {
+    text-align: center;
+    font-size: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  p {
+    span {
+      font-weight: bold;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    width: 80%;
+    margin: 1.5rem auto;
+  }
+`;
