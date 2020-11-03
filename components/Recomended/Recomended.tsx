@@ -11,9 +11,11 @@ export default function Recomended({ recomendeds }: Recomendeds) {
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
+    autoplaySpeed: 4000,
     draggable: false,
     prevArrow: <Arrow site="Left" />,
     nextArrow: <Arrow />,
+    autoplay: true,
     responsive: [
       {
         breakpoint: 767,

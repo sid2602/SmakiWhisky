@@ -2,8 +2,12 @@ import styled from "@emotion/styled";
 
 export const ProductContainer = styled.section`
   display: flex;
-  width: 80%;
+  width: 60%;
   margin: 0 auto;
+  padding: 2rem 1rem;
+  -webkit-box-shadow: 0px 0px 20px 0px rgba(168, 168, 168, 1);
+  -moz-box-shadow: 0px 0px 20px 0px rgba(168, 168, 168, 1);
+  box-shadow: 0px 0px 20px 0px rgba(168, 168, 168, 1);
 
   .mobileHeader {
     display: none;
@@ -19,7 +23,7 @@ export const ImageContainer = styled.div`
   height: 50vh;
   display: flex;
   justify-content: center;
-  border-right: 1px solid black;
+  border-right: 1px solid ${(props: any) => props.theme.colors.primary};
   > img {
     height: 100%;
   }
@@ -63,9 +67,11 @@ export const Info = styled.div`
 export const Description = styled.section`
   width: 60%;
   margin: 3rem auto;
-
+  -webkit-box-shadow: 0px 0px 20px 0px rgba(168, 168, 168, 1);
+  -moz-box-shadow: 0px 0px 20px 0px rgba(168, 168, 168, 1);
+  box-shadow: 0px 0px 20px 0px rgba(168, 168, 168, 1);
   padding: 1rem;
-  border: 1px solid black;
+  /* border: 1px solid ${(props: any) => props.theme.colors.primary}; */
   h3 {
     text-align: center;
     font-size: 1.5rem;

@@ -17,6 +17,12 @@ const GlobalStyles = () => (
           /* font-family: 'Source Sans Pro', sans-serif; */
           overflow-x: hidden;
           position: relative;
+          background: rgb(255, 255, 255);
+          background: linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 1) 0%,
+            rgba(250, 250, 250, 1) 100%
+          );
         }
         body {
           padding-bottom: 500px;

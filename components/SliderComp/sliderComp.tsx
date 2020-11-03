@@ -13,6 +13,8 @@ export default function SliderComponent({ baners }: Baners) {
     dots: true,
     infinite: true,
     speed: 500,
+    autoplaySpeed: 4000,
+    autoplay: true,
     slidesToShow: 1,
     slidesToScroll: 1,
     draggable: false,
