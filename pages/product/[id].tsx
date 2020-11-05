@@ -12,11 +12,11 @@ import {
 import QuantityInput from "assets/QuantityInput";
 import Button from "assets/button";
 import Heading from "assets/heading";
+import { Box } from "reflexbox";
 export default function Product({ product }: ProductExtended) {
   return (
-    <>
+    <Box as="main">
       <ProductContainer>
-        <h2 className="mobileHeader">{product.title}</h2>
         <ImageContainer>
           <img src={process.env.API_URL + product.photo.url} />
         </ImageContainer>
@@ -46,7 +46,7 @@ export default function Product({ product }: ProductExtended) {
           {product.description.finish}
         </p>
       </Description>
-    </>
+    </Box>
   );
 }
 

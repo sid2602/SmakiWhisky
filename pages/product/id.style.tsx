@@ -5,12 +5,9 @@ export const ProductContainer = styled.section`
   width: 60%;
   margin: 0 auto;
   padding: 2rem 1rem;
-  -webkit-box-shadow: 0px 0px 20px 0px rgba(168, 168, 168, 1);
-  -moz-box-shadow: 0px 0px 20px 0px rgba(168, 168, 168, 1);
-  box-shadow: 0px 0px 20px 0px rgba(168, 168, 168, 1);
 
-  .mobileHeader {
-    display: none;
+  @media (max-width: 1024px) {
+    width: 80%;
   }
 
   @media (max-width: 768px) {
@@ -23,9 +20,11 @@ export const ImageContainer = styled.div`
   height: 50vh;
   display: flex;
   justify-content: center;
+  align-items: center;
   border-right: 1px solid ${(props: any) => props.theme.colors.primary};
   > img {
     height: 100%;
+    max-height: 500px;
   }
 
   @media (max-width: 768px) {
@@ -40,6 +39,7 @@ export const Info = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+  padding: 0 1rem;
   h2,
   h3 {
     font-size: 1.5rem;
