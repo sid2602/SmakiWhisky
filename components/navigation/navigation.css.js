@@ -206,3 +206,87 @@ export const DropDown = styled.div`
     }
   }
 `;
+
+export const SearchPopUp = styled.div`
+  .container.active {
+    left: 0;
+  }
+
+  .container {
+    top: 0;
+    position: fixed;
+    z-index: 1000;
+    width: 100vw;
+    height: 100vh;
+    left: 100%;
+    background: white;
+    transition: 0.3s ease-in-out;
+  }
+
+  .closeBtn {
+    cursor: pointer;
+    position: absolute;
+    right: 10%;
+    top: 10%;
+    transform: translate(-50%, -50%);
+    svg {
+      font-size: 2.5rem;
+      color: ${(props) => props.theme.colors.gray};
+      transition: 0.2s ease-in-out;
+    }
+
+    :hover > svg {
+      transform: scale(1.2);
+    }
+  }
+
+  .inputContainer {
+    position: absolute;
+    margin: 0 15%;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  input {
+    font-size: 5rem;
+    border: none;
+    outline: none;
+
+    color: ${(props) => props.theme.colors.lighterBlack};
+    ::placeholder {
+      color: ${(props) => props.theme.colors.lighterBlack};
+      opacity: 1;
+    }
+
+    :-ms-input-placeholder {
+      color: ${(props) => props.theme.colors.lighterBlack};
+    }
+
+    ::-ms-input-placeholder {
+      color: ${(props) => props.theme.colors.lighterBlack};
+    }
+  }
+
+  p {
+    font-size: 1.5rem;
+    font-family: "Source Sans Pro", sans-serif;
+  }
+
+  @media (max-width: 1024px) {
+    input {
+      font-size: 4rem;
+    }
+    p {
+      font-size: 1rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    input {
+      font-size: 2.5rem;
+    }
+    p {
+      font-size: 0.8rem;
+    }
+  }
+`;
