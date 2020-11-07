@@ -1,9 +1,12 @@
 import styled from "@emotion/styled";
 import { useState } from "react";
 
-export default function QuantityInput() {
-  const [value, setValue] = useState(1);
+type Props = {
+  setValue: (value: number) => void;
+  value: number;
+};
 
+export default function QuantityInput({ setValue, value }: Props) {
   const onChange = (e: React.FormEvent) => {
     const value: number = (e.target as any).value;
     setValue(value);

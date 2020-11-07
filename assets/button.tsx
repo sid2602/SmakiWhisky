@@ -1,11 +1,21 @@
 import styled from "@emotion/styled";
 
+import { Product } from "types/types";
+import { useDispatchCart } from "components/cart/index.js";
+
 type Props = {
   children: React.ReactNode;
+  product?: Product;
 };
 
-export default function Button({ children }: Props) {
-  return <ButtonStyled>{children}</ButtonStyled>;
+export default function Button({ children, product }: Props) {
+  const dispatch = useDispatchCart();
+
+  const addToChart = () => {
+    dispatch({ type: "ADD", item: product });
+  };
+
+  return <ButtonStyled onClick={addToChart}>{children}</ButtonStyled>;
 }
 
 const ButtonStyled = styled.button`

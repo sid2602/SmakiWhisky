@@ -11,9 +11,18 @@ import {
 } from "./id.style";
 import QuantityInput from "assets/QuantityInput";
 import Button from "assets/button";
-import Heading from "assets/heading";
+import { useState } from "react";
 import { Box } from "reflexbox";
-export default function Product({ product }: ProductExtended) {
+import { Product } from "types/types";
+
+export default function ProductPage({ product }: ProductExtended) {
+  const [inputValue, setInputValue] = useState(1);
+
+  const transferProduct: Product = Object.assign(
+    { quantity: inputValue },
+    product
+  );
+
   return (
     <Box as="main">
       <ProductContainer>
@@ -23,8 +32,8 @@ export default function Product({ product }: ProductExtended) {
         <Info>
           <h2>{product.title}</h2>
           <h3>{product.price} zł</h3>
-          <QuantityInput />
-          <Button>Dodaj do koszyka</Button>
+          <QuantityInput setValue={setInputValue} value={inputValue} />
+          <Button product={transferProduct}>Dodaj do koszyka</Button>
         </Info>
       </ProductContainer>
       <Description>

@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { useState, useRef } from "react";
+import { useState, useEffect } from "react";
 import {
   faShoppingBag,
   faSearch,
@@ -20,17 +20,29 @@ import {
 } from "./navigation.css.js";
 import { useRouter } from "next/router";
 
-import { Navigations, MenuItem } from "types/types";
+import { Navigations, MenuItem, Products, Product } from "types/types";
 
+import { useCart } from "components/cart";
 // import Logo from "public/img/logo.png";
 
 export default function Navigation({ data }: Navigations) {
   const [activeMobileMenu, setActiveMobileMenu] = useState(false);
-
   const [searchModalActive, setSearchModalActive] = useState(false);
   const [searchValue, SetSearchValue] = useState("");
-
+  const [quantityOfProducts, setQuantityOfProducts] = useState(0);
   const router = useRouter();
+
+  const products: Product[] = useCart();
+
+  useEffect(() => {
+    if (products.length > 0) {
+      products.forEach((product) => {
+        setQuantityOfProducts(
+          quantityOfProducts + (product.quantity as number)
+        );
+      });
+    }
+  }, [products]);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -86,9 +98,10 @@ export default function Navigation({ data }: Navigations) {
               <button onClick={() => setSearchModalActive(true)}>
                 <FontAwesomeIcon icon={faSearch} />
               </button>
-              <Link href="#">
+              <Link href="/cart">
                 <a>
-                  <FontAwesomeIcon icon={faShoppingBag} />
+                  <FontAwesomeIcon icon={faShoppingBag} /> ({" "}
+                  {quantityOfProducts} )
                 </a>
               </Link>
               <button

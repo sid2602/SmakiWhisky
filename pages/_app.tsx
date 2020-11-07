@@ -10,14 +10,18 @@ import { gql } from "@apollo/client";
 import { Navigations } from "types/types";
 import Footer from "components/footer/footer";
 
+import { CartProvider } from "components/cart/index.js";
+
 function MyApp({ Component, pageProps, data }: AppProps & Navigations) {
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <Navigation data={data} />
-      <Component {...pageProps} />
-      <Footer />
-    </ThemeProvider>
+    <CartProvider>
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <Navigation data={data} />
+        <Component {...pageProps} />
+        <Footer />
+      </ThemeProvider>
+    </CartProvider>
   );
 }
 

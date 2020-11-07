@@ -51,6 +51,7 @@ export type Product = {
   photo: {
     url: string;
   };
+  quantity?: number;
 };
 
 export type NavigationTypes = {

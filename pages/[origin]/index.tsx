@@ -6,7 +6,7 @@ import Card from "assets/card";
 import { Box, Flex } from "reflexbox";
 
 import Heading from "assets/heading";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FilterContainer, NoProduct } from "./origin.css";
 
 type Result = {
@@ -30,6 +30,10 @@ export default function Origin({ result, max }: Result) {
 
   const [selectedValue, setSelectedValue] = useState(selectOption[0]);
   const [priceValue, setPriceValue] = useState(max);
+
+  useEffect(() => {
+    setPriceValue(max);
+  }, [max]);
 
   const onChange = (e: any) => {
     if (e.target.id == "select") setSelectedValue(e.target.value);

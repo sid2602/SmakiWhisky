@@ -70,7 +70,7 @@ export const Description = styled.section`
   -webkit-box-shadow: 0px 0px 20px 0px rgba(168, 168, 168, 1);
   -moz-box-shadow: 0px 0px 20px 0px rgba(168, 168, 168, 1);
   box-shadow: 0px 0px 20px 0px rgba(168, 168, 168, 1);
-  padding: 1rem;
+  padding: 1rem 1rem 2rem 1rem;
   /* border: 1px solid ${(props: any) => props.theme.colors.primary}; */
   h3 {
     text-align: center;
