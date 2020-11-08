@@ -8,16 +8,21 @@ import {
   ImageContainer,
   Info,
   Description,
+  StyledModal,
+  ModalInfo,
 } from "./id.style";
 import QuantityInput from "assets/QuantityInput";
 import Button from "assets/button";
 import { useState } from "react";
 import { Box } from "reflexbox";
 import { Product } from "types/types";
+import Modal from "react-modal";
+
+Modal.setAppElement("#__next");
 
 export default function ProductPage({ product }: ProductExtended) {
   const [inputValue, setInputValue] = useState(1);
-
+  const [openModal, setOpenModal] = useState(false);
   const transferProduct: Product = Object.assign(
     { quantity: inputValue },
     product
@@ -33,7 +38,9 @@ export default function ProductPage({ product }: ProductExtended) {
           <h2>{product.title}</h2>
           <h3>{product.price} zł</h3>
           <QuantityInput setValue={setInputValue} value={inputValue} />
-          <Button product={transferProduct}>Dodaj do koszyka</Button>
+          <Button product={transferProduct} setOpenModal={setOpenModal}>
+            Dodaj do koszyka
+          </Button>
         </Info>
       </ProductContainer>
       <Description>
@@ -55,6 +62,33 @@ export default function ProductPage({ product }: ProductExtended) {
           {product.description.finish}
         </p>
       </Description>
+      <StyledModal
+        isOpen={openModal}
+        onRequestClose={() => setOpenModal(false)}
+        style={{ overlay: { background: "rgba(0,0,0,0.4)" } }}
+      >
+        <h3>Produkt został dodany do koszyka</h3>
+        <ModalInfo>
+          <div>
+            <img
+              src={process.env.API_URL + product.photo.url}
+              alt={product.title}
+            />
+            <p>
+              {product.title}
+              <br />
+              <span>ilosc:</span> {inputValue}
+            </p>
+          </div>
+          <div>
+            <p>
+              {(product.price * inputValue).toFixed(2)}
+              zł
+            </p>
+            <Button>Pokaż koszyk</Button>
+          </div>
+        </ModalInfo>
+      </StyledModal>
     </Box>
   );
 }

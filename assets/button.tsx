@@ -2,20 +2,35 @@ import styled from "@emotion/styled";
 
 import { Product } from "types/types";
 import { useDispatchCart } from "components/cart/index.js";
+import Link from "next/link";
 
 type Props = {
   children: React.ReactNode;
   product?: Product;
+  setOpenModal?: (value: boolean) => void;
 };
 
-export default function Button({ children, product }: Props) {
+export default function Button({ children, product, setOpenModal }: Props) {
   const dispatch = useDispatchCart();
 
   const addToChart = () => {
     dispatch({ type: "ADD", item: product });
+    setOpenModal!(true);
   };
 
-  return <ButtonStyled onClick={addToChart}>{children}</ButtonStyled>;
+  return (
+    <>
+      {product ? (
+        <ButtonStyled onClick={addToChart}>{children}</ButtonStyled>
+      ) : (
+        <Link href="/cart">
+          <a>
+            <ButtonStyled>{children}</ButtonStyled>
+          </a>
+        </Link>
+      )}
+    </>
+  );
 }
 
 const ButtonStyled = styled.button`
@@ -28,7 +43,6 @@ const ButtonStyled = styled.button`
   border-radius: 5px;
   cursor: pointer;
   transition: 0.4s ease-in-out;
-
   :hover {
     background-color: white;
     color: black;
