@@ -25,7 +25,11 @@ import { Navigations, MenuItem, Products, Product } from "types/types";
 import { useCart } from "components/cart";
 // import Logo from "public/img/logo.png";
 
-export default function Navigation({ data }: Navigations) {
+type Props = {
+  logo: string;
+};
+
+export default function Navigation({ data, logo }: Props & Navigations) {
   const [activeMobileMenu, setActiveMobileMenu] = useState(false);
   const [searchModalActive, setSearchModalActive] = useState(false);
   const [searchValue, SetSearchValue] = useState("");
@@ -59,7 +63,7 @@ export default function Navigation({ data }: Navigations) {
           <LogoContainer>
             <Link href="/">
               <a>
-                <img src="img/logo.png" />
+                <img src={process.env.API_URL + logo} />
               </a>
             </Link>
           </LogoContainer>

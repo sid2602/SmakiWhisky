@@ -20,6 +20,7 @@ export default function AddToChartModal({
 }: Props) {
   return (
     <StyledModal
+      closeTimeoutMS={500}
       isOpen={openModal}
       onRequestClose={() => setOpenModal(false)}
       style={{ overlay: { background: "rgba(0,0,0,0.4)" } }}

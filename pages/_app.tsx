@@ -12,12 +12,21 @@ import Footer from "components/footer/footer";
 
 import { CartProvider } from "components/cart/index.js";
 
-function MyApp({ Component, pageProps, data }: AppProps & Navigations) {
+type Props = {
+  logo: string;
+};
+
+function MyApp({
+  Component,
+  pageProps,
+  data,
+  logo,
+}: AppProps & Navigations & Props) {
   return (
     <CartProvider>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
-        <Navigation data={data} />
+        <Navigation data={data} logo={logo} />
         <Component {...pageProps} />
         <Footer />
       </ThemeProvider>
@@ -45,7 +54,21 @@ MyApp.getInitialProps = async () => {
     `,
   });
 
-  return { data: data.navigations };
+  const {
+    data: { logos },
+  } = await apolloClient.query({
+    query: gql`
+      {
+        logos {
+          logo {
+            url
+          }
+        }
+      }
+    `,
+  });
+
+  return { data: data.navigations, logo: logos[0].logo.url };
 };
 
 export default MyApp;
