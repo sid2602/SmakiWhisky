@@ -7,7 +7,10 @@ function reducer(state, action) {
   switch (action.type) {
     case "ADD":
       return [...state, action.item];
-
+    case "CHANGE":
+      const Item = state[action.id];
+      console.log(Item);
+      return [...state];
     default:
       throw new Error();
   }

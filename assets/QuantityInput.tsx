@@ -1,27 +1,38 @@
 import styled from "@emotion/styled";
-import { useState } from "react";
+import { useDispatchCart } from "components/cart";
 
 type Props = {
-  setValue: (value: number) => void;
-  value: number;
+  setValue: (value: number | number[]) => void;
+  value: number & [number];
+  id?: number;
 };
 
-export default function QuantityInput({ setValue, value }: Props) {
+export default function QuantityInput({ setValue, value, id }: Props) {
   const onChange = (e: React.FormEvent) => {
     const value: number = (e.target as any).value;
-    setValue(value);
+    if (!id) {
+      setValue(value);
+    } else {
+    }
   };
 
   const onButtonClick = (increase: boolean) => {
-    if (increase) setValue(value + 1);
-    else {
-      if (value > 1) setValue(value - 1);
+    if (increase) {
+      if (id! >= 0) {
+        const val = value.map((item, mapId) => (mapId == id ? item + 1 : item));
+        setValue(val);
+      } else setValue(value + 1);
+    } else if (value > 1) {
+      if (id! >= 0) {
+        const val = value.map((item, mapId) => (mapId == id ? item - 1 : item));
+        setValue(val);
+      } else setValue(value - 1);
     }
   };
 
   return (
     <InputContainer>
-      <input type="number" value={value} onChange={onChange} />
+      <input type="number" value={id ? value[id] : value} onChange={onChange} />
       <button onClick={() => onButtonClick(true)}>+</button>
       <button onClick={() => onButtonClick(false)}>-</button>
     </InputContainer>
