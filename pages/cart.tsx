@@ -25,13 +25,12 @@ export default function Cart() {
         <QuantityInput value={inputsValue} setValue={setInputsValue} id={id} />
         <Flex alignItems="center" fontSize="1.2rem">
           <h4>Cena: </h4>
-          <Price>{item.quantity! * item.price}</Price>
+          <Price>{(item.quantity! * item.price).toFixed(2)}</Price>
         </Flex>
       </Flex>
     </ItemContainer>
   ));
 
-  // console.log(mapProducts);
   return (
     <>
       <Box as="main" mx="auto" maxWidth={1200} width="100%" px={30}>

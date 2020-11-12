@@ -6,7 +6,18 @@ const CartDispatchContext = createContext();
 function reducer(state, action) {
   switch (action.type) {
     case "ADD":
-      return [...state, action.item];
+      const findItem = state.find((item) => item.id === action.item.id);
+      if (findItem) {
+        // console.log(findItem);
+        const copyOfState = state.map((item) => {
+          item.id === action.item.id
+            ? (item.quantity += action.item.quantity)
+            : item.quantity;
+
+          return item;
+        });
+        return copyOfState;
+      } else return [...state, action.item];
     case "CHANGE":
       const Item = state[action.id];
       console.log(Item);

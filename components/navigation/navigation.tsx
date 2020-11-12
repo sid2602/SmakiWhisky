@@ -40,11 +40,12 @@ export default function Navigation({ data, logo }: Props & Navigations) {
 
   useEffect(() => {
     if (products.length > 0) {
+      let quantity = 0;
+
       products.forEach((product) => {
-        setQuantityOfProducts(
-          quantityOfProducts + (product.quantity as number)
-        );
+        quantity += product.quantity!;
       });
+      setQuantityOfProducts(quantity);
     }
   }, [products]);
 

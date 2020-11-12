@@ -3,17 +3,15 @@ import { useDispatchCart } from "components/cart";
 
 type Props = {
   setValue: (value: number | number[]) => void;
-  value: number & [number];
+  value: number & number[];
   id?: number;
 };
 
 export default function QuantityInput({ setValue, value, id }: Props) {
   const onChange = (e: React.FormEvent) => {
-    const value: number = (e.target as any).value;
-    if (!id) {
-      setValue(value);
-    } else {
-    }
+    const val: number = (e.target as any).value;
+
+    setValue(val);
   };
 
   const onButtonClick = (increase: boolean) => {
@@ -32,7 +30,11 @@ export default function QuantityInput({ setValue, value, id }: Props) {
 
   return (
     <InputContainer>
-      <input type="number" value={id ? value[id] : value} onChange={onChange} />
+      <input
+        type="number"
+        value={id! >= 0 ? value[id!] : value}
+        onChange={onChange}
+      />
       <button onClick={() => onButtonClick(true)}>+</button>
       <button onClick={() => onButtonClick(false)}>-</button>
     </InputContainer>
