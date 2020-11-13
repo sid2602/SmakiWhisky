@@ -23,7 +23,6 @@ import { useRouter } from "next/router";
 import { Navigations, MenuItem, Products, Product } from "types/types";
 
 import { useCart } from "components/cart";
-// import Logo from "public/img/logo.png";
 
 type Props = {
   logo: string;

@@ -2,11 +2,14 @@ import { useCart } from "components/cart/index";
 import Heading from "assets/heading";
 import { Box, Flex } from "reflexbox";
 import styled from "@emotion/styled";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Product } from "types/types";
 import QuantityInput from "assets/QuantityInput";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import { useDispatchCart } from "components/cart/index";
 export default function Cart() {
+  const dispatch = useDispatchCart();
   const products = useCart();
 
   const qunatityOfProducts = products.map(
@@ -15,8 +18,15 @@ export default function Cart() {
 
   const [inputsValue, setInputsValue] = useState(qunatityOfProducts);
 
+  const removeItem = (id: number) => {
+    dispatch({ type: "REMOVE", id });
+  };
+
   const mapProducts = products.map((item: Product, id: number) => (
     <ItemContainer key={item.title}>
+      <RemoveBtn onClick={() => removeItem(id)}>
+        <FontAwesomeIcon icon={faTimes} />
+      </RemoveBtn>
       <Box flex={1} textAlign="center">
         <Image src={process.env.API_URL + item.photo.url} alt="" />
       </Box>
@@ -61,6 +71,15 @@ const ItemContainer = styled.div`
     height: 1px;
     background: ${(props: any) => props.theme.colors.primary};
   }
+`;
+
+const RemoveBtn = styled.button`
+  display: block;
+  position: absolute;
+  right: 10%;
+  top: -10%;
+  font-size: 1.5rem;
+  cursor: pointer;
 `;
 
 const Image = styled.img`

@@ -68,6 +68,8 @@ MyApp.getInitialProps = async () => {
     `,
   });
 
+  // console.log(window.localStorage.getItem("products"));
+
   return { data: data.navigations, logo: logos[0].logo.url };
 };
 

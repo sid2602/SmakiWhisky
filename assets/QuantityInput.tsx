@@ -8,9 +8,10 @@ type Props = {
 };
 
 export default function QuantityInput({ setValue, value, id }: Props) {
+  const dispatch = useDispatchCart();
+
   const onChange = (e: React.FormEvent) => {
     const val: number = (e.target as any).value;
-
     setValue(val);
   };
 
@@ -19,12 +20,16 @@ export default function QuantityInput({ setValue, value, id }: Props) {
       if (id! >= 0) {
         const val = value.map((item, mapId) => (mapId == id ? item + 1 : item));
         setValue(val);
+        dispatch({ type: "CHANGE", id, value: val[id!] });
       } else setValue(value + 1);
-    } else if (value > 1) {
+    } else {
       if (id! >= 0) {
-        const val = value.map((item, mapId) => (mapId == id ? item - 1 : item));
+        const val = value.map((item, mapId) =>
+          mapId == id ? (item > 1 ? item - 1 : item) : item
+        );
         setValue(val);
-      } else setValue(value - 1);
+        dispatch({ type: "CHANGE", id, value: val[id!] });
+      } else setValue(value > 1 ? value - 1 : value);
     }
   };
 
@@ -34,6 +39,7 @@ export default function QuantityInput({ setValue, value, id }: Props) {
         type="number"
         value={id! >= 0 ? value[id!] : value}
         onChange={onChange}
+        disabled
       />
       <button onClick={() => onButtonClick(true)}>+</button>
       <button onClick={() => onButtonClick(false)}>-</button>

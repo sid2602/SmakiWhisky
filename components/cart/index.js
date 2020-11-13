@@ -1,4 +1,10 @@
-import React, { useReducer, useContext, createContext } from "react";
+import React, {
+  useReducer,
+  useContext,
+  createContext,
+  useEffect,
+  useState,
+} from "react";
 
 const CartStateContext = createContext();
 const CartDispatchContext = createContext();
@@ -8,7 +14,6 @@ function reducer(state, action) {
     case "ADD":
       const findItem = state.find((item) => item.id === action.item.id);
       if (findItem) {
-        // console.log(findItem);
         const copyOfState = state.map((item) => {
           item.id === action.item.id
             ? (item.quantity += action.item.quantity)
@@ -16,20 +21,51 @@ function reducer(state, action) {
 
           return item;
         });
+        localStorage.setItem("products", JSON.stringify(copyOfState));
         return copyOfState;
-      } else return [...state, action.item];
+      } else {
+        localStorage.setItem(
+          "products",
+          JSON.stringify([...state, action.item])
+        );
+        return [...state, action.item];
+      }
+
     case "CHANGE":
-      const Item = state[action.id];
-      console.log(Item);
-      return [...state];
+      const copyOfState = state.map((item, id) => {
+        id == action.id ? (item.quantity = action.value) : item.quantity;
+        return item;
+      });
+
+      localStorage.setItem("products", JSON.stringify(copyOfState));
+      return copyOfState;
+
+    case "REMOVE":
+      const CopyOfState = state;
+      CopyOfState.splice(action.id, 1);
+      window.location.reload(false);
+      localStorage.setItem("products", JSON.stringify(CopyOfState));
+
+      return CopyOfState;
     default:
       throw new Error();
   }
 }
 
-export const CartProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(reducer, []);
+// console.log(JSON.parse(localStorage.getItem("products")));
 
+export const CartProvider = ({ children }) => {
+  const [cartItems, setCartItems] = useState(() => {
+    try {
+      const item = window.localStorage.getItem("products");
+
+      return item ? JSON.parse(item) : [];
+    } catch (error) {
+      return [];
+    }
+  });
+
+  const [state, dispatch] = useReducer(reducer, cartItems);
   return (
     <CartDispatchContext.Provider value={dispatch}>
       <CartStateContext.Provider value={state}>
