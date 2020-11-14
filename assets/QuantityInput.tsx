@@ -34,7 +34,7 @@ export default function QuantityInput({ setValue, value, id }: Props) {
   };
 
   return (
-    <InputContainer>
+    <InputContainer cart={id !== undefined ? true : false}>
       <input
         type="number"
         value={id! >= 0 ? value[id!] : value}
@@ -54,6 +54,7 @@ const InputContainer = styled.div`
   color: ${(props: any) => props.theme.colors.gray};
   input {
     border: 2px solid ${(props: any) => props.theme.colors.primary};
+    /* background: ${(props: any) => (props.cart ? "red" : "white")}; */
     width: 100px;
     margin: 0;
     padding: 0.5rem 2rem;
@@ -61,6 +62,15 @@ const InputContainer = styled.div`
 
     :focus {
       outline: none;
+    }
+
+    @media (max-width: 768px) {
+      width: ${(props: any) => props.cart && "75px"};
+    }
+    @media (max-width: 350px) {
+      padding: ${(props: any) => props.cart && "0.5rem 1rem"};
+      width: ${(props: any) => props.cart && "60px"};
+      font-size: ${(props: any) => props.cart && "0.7rem"};
     }
   }
 
@@ -85,6 +95,18 @@ const InputContainer = styled.div`
 
     :hover {
       color: ${(props: any) => props.theme.colors.primary};
+    }
+
+    @media (max-width: 768px) {
+      width: ${(props: any) => props.cart && "30px"};
+      height: ${(props: any) => props.cart && "30px"};
+      font-size: ${(props: any) => props.cart && "1rem"};
+    }
+
+    @media (max-width: 350px) {
+      width: ${(props: any) => props.cart && "25px"};
+      height: ${(props: any) => props.cart && "25px"};
+      font-size: ${(props: any) => props.cart && "0.8rem"};
     }
   }
 `;

@@ -73,6 +73,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       {
         recomendeds {
           products {
+            id
             title
             price
             photo {

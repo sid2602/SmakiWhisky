@@ -8,9 +8,15 @@ type Props = {
   children: React.ReactNode;
   product?: Product;
   setOpenModal?: (value: boolean) => void;
+  href?: string;
 };
 
-export default function Button({ children, product, setOpenModal }: Props) {
+export default function Button({
+  children,
+  product,
+  setOpenModal,
+  href,
+}: Props) {
   const dispatch = useDispatchCart();
 
   const addToChart = () => {
@@ -23,7 +29,7 @@ export default function Button({ children, product, setOpenModal }: Props) {
       {product ? (
         <ButtonStyled onClick={addToChart}>{children}</ButtonStyled>
       ) : (
-        <Link href="/cart">
+        <Link href={href!}>
           <a>
             <ButtonStyled>{children}</ButtonStyled>
           </a>

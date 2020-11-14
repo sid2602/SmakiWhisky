@@ -43,7 +43,7 @@ export default function AddToChartModal({
             {(product.price * inputValue).toFixed(2)}
             zł
           </p>
-          <Button>Pokaż koszyk</Button>
+          <Button href={"/cart"}>Pokaż koszyk</Button>
         </div>
       </ModalInfo>
     </StyledModal>

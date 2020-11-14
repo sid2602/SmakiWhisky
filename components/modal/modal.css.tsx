@@ -26,7 +26,7 @@ export const StyledModal = styled(Modal)`
 
   @media (max-width: 400px) {
     width: 280px;
-    height: 470px;
+    height: 500px;
 
     h3 {
       font-size: 1rem;
