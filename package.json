@@ -25,6 +25,8 @@
     "emotion": "^10.0.27",
     "emotion-normalize": "^10.1.0",
     "emotion-theming": "^10.0.27",
+    "formik": "^2.2.5",
+    "framer-motion": "^2.9.4",
     "graphql": "^15.3.0",
     "next": "9.5.4",
     "react": "16.13.1",

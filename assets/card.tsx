@@ -4,13 +4,18 @@ import Link from "next/link";
 
 type Props = {
   product: Product;
+  lazy?: boolean;
 };
 
-export default function Card({ product }: Props) {
+export default function Card({ product, lazy }: Props) {
   return (
     <Link href={`/product/${encodeURIComponent(product.id)}`}>
       <CardStyled>
-        <img src={process.env.API_URL + product.photo.url} />
+        <img
+          src={process.env.API_URL + product.photo.url}
+          loading={lazy ? "lazy" : "eager"}
+          alt={product.title}
+        />
         <p className="title">{product.title}</p>
         <div className="border" />
         <p>{product.price}</p>
@@ -32,7 +37,8 @@ const CardStyled = styled.a`
   justify-content: center;
   align-items: center;
   max-width: 250px;
-  overflow: hidden;
+  outline: none;
+
   padding: 0.5rem 0.5rem 0 0.5rem;
   img {
     height: 60%;

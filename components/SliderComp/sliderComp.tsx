@@ -5,7 +5,6 @@ import "slick-carousel/slick/slick-theme.css";
 import { Img } from "./sliderComp.css";
 import { Baners } from "types/types";
 import Link from "next/link";
-
 import Arrow from "assets/arrow";
 
 export default function SliderComponent({ baners }: Baners) {
@@ -23,13 +22,18 @@ export default function SliderComponent({ baners }: Baners) {
   };
 
   return (
-    <Box as="article" mt="1rem" width="100%">
+    <Box as="article" mt="1rem" width="100%" height="10%">
       <Slider {...settings}>
         {baners.map((baner) => (
           <div key={baner.name}>
             <Link href={baner.slug}>
               <a>
-                <Img src={process.env.API_URL + baner.photo.url} />
+                <Img
+                  src={process.env.API_URL + baner.photo.url}
+                  height="534px"
+                  width="1140px"
+                  alt={baner.name}
+                />
               </a>
             </Link>
           </div>

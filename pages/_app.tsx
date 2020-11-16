@@ -9,7 +9,6 @@ import { apolloClient } from "services/strapi";
 import { gql } from "@apollo/client";
 import { Navigations } from "types/types";
 import Footer from "components/footer/footer";
-
 import { CartProvider } from "components/cart/index.js";
 
 type Props = {

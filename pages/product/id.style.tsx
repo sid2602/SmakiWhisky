@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import Modal from "react-modal";
 
 export const ProductContainer = styled.section`
   display: flex;

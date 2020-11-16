@@ -37,7 +37,7 @@ export default function Recomended({ recomendeds }: Recomendeds) {
       <Heading>Polecane</Heading>
       <Slider {...settings}>
         {recomendeds.map((item) => (
-          <Card key={item.title} product={item} />
+          <Card key={item.title} product={item} lazy={true} />
         ))}
       </Slider>
     </Box>

@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { useDispatchCart } from "components/cart/index";
 import Button from "assets/button";
-
+import Sumarry from "assets/sumarry";
 export default function Cart() {
   const dispatch = useDispatchCart();
   const products = useCart();
@@ -18,15 +18,6 @@ export default function Cart() {
     (product: Product) => product.quantity
   );
 
-  useEffect(() => {
-    let price = 0;
-    products.forEach((product: Product) => {
-      price += product.price * product.quantity!;
-    });
-    setOrderCost(price);
-  }, [products]);
-
-  const [orderCost, setOrderCost] = useState(0);
   const [inputsValue, setInputsValue] = useState(qunatityOfProducts);
 
   const removeItem = (id: number) => {
@@ -67,31 +58,11 @@ export default function Cart() {
             Twój koszyk jest pusty
           </Box>
         ) : (
-          <>
+          <Box as="section" textAlign="center">
             {mapProducts}
-            <Summarry>
-              <div>
-                <div className="price">
-                  <p>Wartość zamówienia</p>
-                  <p>{orderCost.toFixed(2)}</p>
-                </div>
-                <div className="price">
-                  <p>Koszt przesyłki </p>
-                  <p>{orderCost >= 400 ? 0 : 25} zł</p>
-                </div>
-                <div className="price">
-                  <h4>Koszt całkowity</h4>
-                  <h4>
-                    {orderCost >= 400
-                      ? orderCost.toFixed(2)
-                      : (orderCost + 25).toFixed(2)}
-                    zł
-                  </h4>
-                </div>
-              </div>
-              <Button href={"/checkout"}>Przejdź do kasy</Button>
-            </Summarry>
-          </>
+            <Sumarry />
+            <Button href={"/checkout"}>Przejdź do kasy</Button>
+          </Box>
         )}
       </Box>
     </>
@@ -152,34 +123,5 @@ const Price = styled.p`
 
   @media (max-width: 768px) {
     margin-left: 4rem;
-  }
-`;
-
-const Summarry = styled.article`
-  font-family: "Source Sans Pro", sans-serif;
-  width: 500px;
-  padding: 3rem 0 1rem;
-  margin: 0 auto;
-  text-align: center;
-
-  .price {
-    display: flex;
-    font-size: 1.2rem;
-    justify-content: space-between;
-  }
-
-  button {
-    margin: 2rem 0 0;
-  }
-
-  @media (max-width: 768px) {
-    width: 350px;
-    .price {
-      font-size: 1rem;
-    }
-  }
-
-  @media (max-width: 400px) {
-    width: 280px;
   }
 `;
