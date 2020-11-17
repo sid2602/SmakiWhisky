@@ -5,7 +5,6 @@ import React, {
   useEffect,
   useState,
 } from "react";
-
 const CartStateContext = createContext();
 const CartDispatchContext = createContext();
 
@@ -47,12 +46,16 @@ function reducer(state, action) {
       localStorage.setItem("products", JSON.stringify(CopyOfState));
 
       return CopyOfState;
+
+    case "REMOVEALL":
+      localStorage.removeItem("products");
+
+      return [];
+
     default:
       throw new Error();
   }
 }
-
-// console.log(JSON.parse(localStorage.getItem("products")));
 
 export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState(() => {

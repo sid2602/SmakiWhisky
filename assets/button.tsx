@@ -9,6 +9,7 @@ type Props = {
   product?: Product;
   setOpenModal?: (value: boolean) => void;
   href?: string;
+  submit?: boolean;
 };
 
 export default function Button({
@@ -16,6 +17,7 @@ export default function Button({
   product,
   setOpenModal,
   href,
+  submit,
 }: Props) {
   const dispatch = useDispatchCart();
 
@@ -28,6 +30,8 @@ export default function Button({
     <>
       {product ? (
         <ButtonStyled onClick={addToChart}>{children}</ButtonStyled>
+      ) : submit ? (
+        <ButtonStyled type="submit">{children}</ButtonStyled>
       ) : (
         <Link href={href!}>
           <a>

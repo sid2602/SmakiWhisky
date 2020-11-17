@@ -20,7 +20,7 @@ import {
 } from "./navigation.css.js";
 import { useRouter } from "next/router";
 
-import { Navigations, MenuItem, Products, Product } from "types/types";
+import { Navigations, Product } from "types/types";
 
 import { useCart } from "components/cart";
 
