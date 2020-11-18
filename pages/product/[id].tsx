@@ -33,7 +33,10 @@ export default function ProductPage({ product }: ProductExtended) {
         <Info>
           <h2>{product.title}</h2>
           <h3>{product.price} zł</h3>
-          <QuantityInput setValue={setInputValue} value={inputValue} />
+          <QuantityInput
+            setValue={setInputValue as (value: number[] | number) => void}
+            value={inputValue as number & number[]}
+          />
           <Button product={transferProduct} setOpenModal={setOpenModal}>
             Dodaj do koszyka
           </Button>

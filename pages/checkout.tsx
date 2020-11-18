@@ -43,7 +43,6 @@ export default function checkout() {
         }}
         validationSchema={Schema}
         onSubmit={() => {
-          router.push("/");
           dispatch({ type: "REMOVEALL" });
         }}
       >

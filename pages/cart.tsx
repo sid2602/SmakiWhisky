@@ -10,11 +10,12 @@ import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { useDispatchCart } from "components/cart/index";
 import Button from "assets/button";
 import Sumarry from "assets/sumarry";
+
 export default function Cart() {
   const dispatch = useDispatchCart();
   const products = useCart();
 
-  const qunatityOfProducts = products.map(
+  const qunatityOfProducts: number & number[] = products.map(
     (product: Product) => product.quantity
   );
 
@@ -40,7 +41,11 @@ export default function Cart() {
         textAlign="center"
       >
         <h3>{item.title}</h3>
-        <QuantityInput value={inputsValue} setValue={setInputsValue} id={id} />
+        <QuantityInput
+          value={inputsValue}
+          setValue={setInputsValue as (value: number[] | number) => void}
+          id={id}
+        />
         <Flex alignItems="center" fontSize={{ _: "0.9rem", md: "1.2rem" }}>
           <h4>Cena: </h4>
           <Price>{(item.quantity! * item.price).toFixed(2)}</Price>

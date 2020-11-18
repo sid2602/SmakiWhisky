@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import { useDispatchCart } from "components/cart";
 
 type Props = {
-  setValue: (value: number | number[]) => void;
+  setValue: (value: number[] | number) => void;
   value: number & number[];
   id?: number;
 };
