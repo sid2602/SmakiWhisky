@@ -57,7 +57,7 @@ function reducer(state, action) {
   }
 }
 
-export const CartProvider = ({ children }) => {
+const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState(() => {
     try {
       const item = window.localStorage.getItem("products");
@@ -80,3 +80,4 @@ export const CartProvider = ({ children }) => {
 
 export const useCart = () => useContext(CartStateContext);
 export const useDispatchCart = () => useContext(CartDispatchContext);
+export default CartProvider;

@@ -8,7 +8,7 @@ import {
   ImageContainer,
   Info,
   Description,
-} from "./id.style";
+} from "assets/product.style";
 import QuantityInput from "assets/QuantityInput";
 import Button from "assets/button";
 import { useState } from "react";

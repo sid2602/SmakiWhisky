@@ -7,7 +7,7 @@ import { Box, Flex } from "reflexbox";
 
 import Heading from "assets/heading";
 import { useState, useEffect } from "react";
-import { FilterContainer, NoProduct } from "./origin.css";
+import { FilterContainer, NoProduct } from "assets/origin.css";
 
 type Result = {
   result: {
