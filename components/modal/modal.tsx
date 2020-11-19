@@ -28,10 +28,7 @@ export default function AddToChartModal({
       <h3>Produkt został dodany do koszyka</h3>
       <ModalInfo>
         <div>
-          <img
-            src={process.env.API_URL + product.photo.url}
-            alt={product.title}
-          />
+          <img src={product.photo.url} alt={product.title} />
           <p>
             {product.title}
             <br />

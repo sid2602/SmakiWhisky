@@ -29,7 +29,7 @@ export default function SliderComponent({ baners }: Baners) {
             <Link href={baner.slug}>
               <a>
                 <Img
-                  src={process.env.API_URL + baner.photo.url}
+                  src={baner.photo.url}
                   height="534px"
                   width="1140px"
                   alt={baner.name}

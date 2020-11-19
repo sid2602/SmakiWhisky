@@ -12,7 +12,7 @@ export default function Card({ product, lazy }: Props) {
     <Link href={`/product/${encodeURIComponent(product.id)}`}>
       <CardStyled>
         <img
-          src={process.env.API_URL + product.photo.url}
+          src={product.photo.url}
           loading={lazy ? "lazy" : "eager"}
           alt={product.title}
         />

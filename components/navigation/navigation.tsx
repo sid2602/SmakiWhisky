@@ -63,7 +63,7 @@ export default function Navigation({ data, logo }: Props & Navigations) {
           <LogoContainer>
             <Link href="/">
               <a>
-                <img src={process.env.API_URL + logo} />
+                <img src={logo} />
               </a>
             </Link>
           </LogoContainer>

@@ -18,7 +18,7 @@ export default function NewsComponent({ news }: News) {
             >
               <Link href={item.slug}>
                 <a>
-                  <Img src={process.env.API_URL + item.photo.url} />
+                  <Img src={item.photo.url} />
                 </a>
               </Link>
             </Box>

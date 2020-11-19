@@ -31,7 +31,7 @@ export default function Cart() {
         <FontAwesomeIcon icon={faTimes} />
       </RemoveBtn>
       <Box flex={{ _: 2, md: 1 }} textAlign="center">
-        <Image src={process.env.API_URL + item.photo.url} alt={item.title} />
+        <Image src={item.photo.url} alt={item.title} />
       </Box>
       <Flex
         flexDirection="column"

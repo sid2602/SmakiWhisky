@@ -10,6 +10,7 @@ import { gql } from "@apollo/client";
 import { Navigations } from "types/types";
 import Footer from "components/footer/footer";
 import { CartProvider } from "components/cart/index.js";
+import NextNProgress from "nextjs-progressbar";
 
 type Props = {
   logo: string;
@@ -25,6 +26,7 @@ function MyApp({
     <CartProvider>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
+        <NextNProgress color="#F2600C" />
         <Navigation data={data} logo={logo} />
         <Component {...pageProps} />
         <Footer />
@@ -66,8 +68,6 @@ MyApp.getInitialProps = async () => {
       }
     `,
   });
-
-  // console.log(window.localStorage.getItem("products"));
 
   return { data: data.navigations, logo: logos[0].logo.url };
 };

@@ -28,7 +28,7 @@ export default function ProductPage({ product }: ProductExtended) {
     <Box as="main">
       <ProductContainer>
         <ImageContainer>
-          <img src={process.env.API_URL + product.photo.url} />
+          <img src={product.photo.url} />
         </ImageContainer>
         <Info>
           <h2>{product.title}</h2>
