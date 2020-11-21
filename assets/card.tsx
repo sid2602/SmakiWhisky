@@ -13,7 +13,7 @@ export default function Card({ product }: Props) {
         <Image src={product.photo.url} alt={product.title} />
         <p className="title">{product.title}</p>
         <div className="border" />
-        <p>{product.price}</p>
+        <p>{product.price} zł</p>
       </CardStyled>
     </Link>
   );

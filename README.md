@@ -1,30 +1,44 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Smaki Whisky
 
-## Getting Started
+E-Commerce project made with TypeScript, Next.js and Strapi for self learning.
 
-First, run the development server:
+## Demo
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+https://smaki-whisky-2qcps7tss.vercel.app/
+![Demo](./assets/images/1.jpg)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Technologies
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+- Next.js 9.5.4
+- Graphql 15.3.0
+- Strapi 3.2.1
+- TypeScript 4.0.3
+- Formik & Yup
+- Emotion 10.0.27
+- Next-nprogress 1.4.0
+- React-lazy-load-image-component 1.5.0
+- React-modal 3.11.2
+- Reflexbox 4.0.6
+- React-slick 0.27.12
+- React Hooks
+- Local Storage
 
-## Learn More
+## Features
 
-To learn more about Next.js, take a look at the following resources:
+- Browsing products
+- Searching products
+- Adding/removing products to/from cart
+- Checkout form validation with Yup
+- Payment simulation
+- Filtering products by price
+- Sorting products by name or price
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Screenshots
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+![Slider1](./assets/images/2.jpg)
+![News](./assets/images/3.jpg)
+![Slider2](./assets/images/4.jpg)
+![Browsing products](./assets/images/5.jpg)
+![Product Page](./assets/images/6.jpg)
+![Chart](./assets/images/7.jpg)
+![Checkout](./assets/images/8.jpg)

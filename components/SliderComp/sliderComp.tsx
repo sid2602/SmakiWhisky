@@ -6,7 +6,7 @@ import { A } from "./sliderComp.css";
 import { Baners } from "types/types";
 import Link from "next/link";
 import Arrow from "assets/arrow";
-import Image from "assets/lazyImage";
+
 export default function SliderComponent({ baners }: Baners) {
   const settings = {
     dots: true,
