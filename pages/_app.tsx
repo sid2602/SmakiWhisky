@@ -26,7 +26,11 @@ function MyApp({
     <CartProvider>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
-        <NextNProgress color="#F2600C" />
+        <NextNProgress
+          color="#F2600C"
+          height={2}
+          options={{ trickleSpeed: 50 }}
+        />
         <Navigation data={data} logo={logo} />
         <Component {...pageProps} />
         <Footer />

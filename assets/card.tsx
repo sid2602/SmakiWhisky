@@ -1,21 +1,16 @@
 import styled from "@emotion/styled";
 import { Product } from "types/types";
 import Link from "next/link";
-
+import Image from "assets/lazyImage";
 type Props = {
   product: Product;
-  lazy?: boolean;
 };
 
-export default function Card({ product, lazy }: Props) {
+export default function Card({ product }: Props) {
   return (
     <Link href={`/product/${encodeURIComponent(product.id)}`}>
       <CardStyled>
-        <img
-          src={product.photo.url}
-          loading={lazy ? "lazy" : "eager"}
-          alt={product.title}
-        />
+        <Image src={product.photo.url} alt={product.title} />
         <p className="title">{product.title}</p>
         <div className="border" />
         <p>{product.price}</p>
@@ -40,8 +35,11 @@ const CardStyled = styled.a`
   outline: none;
 
   padding: 0.5rem 0.5rem 0 0.5rem;
-  img {
+  span {
     height: 60%;
+  }
+  img {
+    height: 100%;
   }
 
   p {

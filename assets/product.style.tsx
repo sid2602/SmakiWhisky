@@ -22,7 +22,12 @@ export const ImageContainer = styled.div`
   justify-content: center;
   align-items: center;
   border-right: 1px solid ${(props: any) => props.theme.colors.primary};
-  > img {
+
+  span {
+    height: 100%;
+  }
+
+  img {
     height: 100%;
     max-height: 500px;
   }

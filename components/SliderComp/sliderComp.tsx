@@ -2,11 +2,11 @@ import Slider from "react-slick";
 import { Box } from "reflexbox";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { Img } from "./sliderComp.css";
+import { A } from "./sliderComp.css";
 import { Baners } from "types/types";
 import Link from "next/link";
 import Arrow from "assets/arrow";
-
+import Image from "assets/lazyImage";
 export default function SliderComponent({ baners }: Baners) {
   const settings = {
     dots: true,
@@ -22,21 +22,21 @@ export default function SliderComponent({ baners }: Baners) {
   };
 
   return (
-    <Box as="article" mt="1rem" width="100%" height="10%">
+    <Box
+      as="section"
+      mt="1rem"
+      width="100%"
+      minHeight={{ _: "120px", md: "300px", lg: "400px", xl: "500px" }}
+    >
       <Slider {...settings}>
         {baners.map((baner) => (
-          <div key={baner.name}>
+          <Box key={baner.name}>
             <Link href={baner.slug}>
-              <a>
-                <Img
-                  src={baner.photo.url}
-                  height="534px"
-                  width="1140px"
-                  alt={baner.name}
-                />
-              </a>
+              <A>
+                <img src={baner.photo.url} alt={baner.name} />
+              </A>
             </Link>
-          </div>
+          </Box>
         ))}
       </Slider>
     </Box>

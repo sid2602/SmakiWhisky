@@ -49,7 +49,7 @@ function reducer(state, action) {
 
     case "REMOVEALL":
       localStorage.removeItem("products");
-      window.location.replace(`${process.env.APP_URL}`);
+      window.location.replace(`/`);
       return [];
 
     default:

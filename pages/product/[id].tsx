@@ -15,6 +15,7 @@ import { useState } from "react";
 import { Box } from "reflexbox";
 import { Product } from "types/types";
 import Modal from "components/modal/modal";
+import Image from "assets/lazyImage";
 
 export default function ProductPage({ product }: ProductExtended) {
   const [inputValue, setInputValue] = useState(1);
@@ -28,7 +29,7 @@ export default function ProductPage({ product }: ProductExtended) {
     <Box as="main">
       <ProductContainer>
         <ImageContainer>
-          <img src={product.photo.url} />
+          <Image src={product.photo.url} alt={product.title} />
         </ImageContainer>
         <Info>
           <h2>{product.title}</h2>

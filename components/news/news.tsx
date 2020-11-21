@@ -2,7 +2,8 @@ import { Flex, Box } from "reflexbox";
 import { News } from "types/types";
 import Heading from "assets/heading";
 import Link from "next/link";
-import { Img } from "./news.css";
+import { A } from "./news.css";
+import Image from "assets/lazyImage";
 export default function NewsComponent({ news }: News) {
   return (
     <>
@@ -17,9 +18,9 @@ export default function NewsComponent({ news }: News) {
               overflow="hidden"
             >
               <Link href={item.slug}>
-                <a>
-                  <Img src={item.photo.url} />
-                </a>
+                <A>
+                  <Image src={item.photo.url} alt={item.name} />
+                </A>
               </Link>
             </Box>
           ))}

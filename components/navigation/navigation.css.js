@@ -18,7 +18,7 @@ export const Nav = styled.nav`
 
 export const LogoContainer = styled.div`
   flex: 1;
-
+  max-height: 2.7rem;
   img {
     height: 2.7rem;
     padding: 0.2rem 0;
