@@ -10,8 +10,18 @@ import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { useDispatchCart } from "components/cart/index";
 import Button from "assets/button";
 import Sumarry from "assets/sumarry";
-
+import { NextSeo } from "next-seo";
 export default function Cart() {
+  const SEO = {
+    title: `Smaki Whisky | Koszyk`,
+    description: `Dokończ swoje zakupy`,
+
+    openGraph: {
+      title: `Smaki Whisky | Koszyk`,
+      description: `Dokończ swoje zakupy`,
+    },
+  };
+
   const dispatch = useDispatchCart();
   const products = useCart();
 
@@ -56,6 +66,7 @@ export default function Cart() {
 
   return (
     <>
+      <NextSeo {...SEO} />
       <Box as="main" mx="auto" maxWidth={1200} width="100%" px={30}>
         <Heading>Koszyk</Heading>
         {products.length === 0 ? (
