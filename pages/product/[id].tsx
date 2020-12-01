@@ -20,11 +20,11 @@ import { NextSeo } from "next-seo";
 
 export default function ProductPage({ product }: ProductExtended) {
   const SEO = {
-    title: `SmakiWhisky | ${product.title}`,
+    title: `Smaki Whisky | ${product.title}`,
     description: `${product.description.vision} ${product.description.smell} ${product.description.taste}`,
 
     openGraph: {
-      title: `SmakiWhisky | ${product.title}`,
+      title: `Smaki Whisky | ${product.title}`,
       description: `${product.description.vision} ${product.description.smell} ${product.description.taste}`,
     },
   };

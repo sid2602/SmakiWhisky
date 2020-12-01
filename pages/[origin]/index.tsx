@@ -26,6 +26,11 @@ const selectOption = [
 ];
 
 export default function Origin({ result, max }: Result) {
+
+  
+
+
+
   const { products } = result;
 
   const [selectedValue, setSelectedValue] = useState(selectOption[0]);
