@@ -5,6 +5,10 @@ module.exports = {
   env: {
     API_URL: process.env.API_URL,
   },
+  onDemandEntries: {
+    maxInactiveAge: 30 * 1000,
+    pagesBufferLength: 2,
+  },
   target: "serverless",
   webpack: (config, options) => {
     config.resolve.alias["components"] = path.join(__dirname, "components");
