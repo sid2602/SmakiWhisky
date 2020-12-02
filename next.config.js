@@ -6,8 +6,8 @@ module.exports = {
     API_URL: process.env.API_URL,
   },
   onDemandEntries: {
-    maxInactiveAge: 30 * 1000,
-    pagesBufferLength: 2,
+    maxInactiveAge: 35 * 1000,
+    pagesBufferLength: 5,
   },
   target: "serverless",
   webpack: (config, options) => {
